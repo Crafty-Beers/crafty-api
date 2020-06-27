@@ -5,6 +5,7 @@
 
 ## /beer-rec/
 Request: `https://crafty-api.herokuapp.com/beer-rec/`
+
 Example Request Body (required):
 ```json
 {
@@ -15,6 +16,7 @@ Example Request Body (required):
     "alcohol_content": "Low"
 }
 ```
+
 Example Response Body:
 ```json
 [
@@ -37,6 +39,7 @@ Example Response Body:
 
 ## /available-types/
 Request: `https://crafty-api.herokuapp.com/available-types/`
+
 Example Response Body:
 ```json
 [
