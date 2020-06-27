@@ -1,10 +1,29 @@
+import os
+import json
 from fastapi import FastAPI
 from scripts import get_available_beer_types, get_best_beer
 import pandas as pd
 from pydantic import BaseModel
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# use creds to create a client to interact with the Google Drive API
+scopes = ['https://spreadsheets.google.com/feeds']
+json_creds = os.getenv("GS_CREDS")
+creds_dict = json.loads(json_creds)
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
+
+gc = gspread.authorize(creds)
+sh = gc.open_by_key(os.getenv("GS_KEY"))
+ws = sh.worksheet('Beer Database')
+ws_vals = ws.get_all_values()
+beer_df = pd.DataFrame(data=ws_vals[1:], columns=ws_vals[0])
 
 app = FastAPI()
-beer_df = pd.read_csv('Beer Database.csv')
 
 
 class Answers(BaseModel):

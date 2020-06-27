@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 
-beer = pd.read_csv('Beer Database.csv')
-
 # MULTIPLIERS
 EXPERIENCE_MULT = .15
 FLAVOR_MULT = .15
