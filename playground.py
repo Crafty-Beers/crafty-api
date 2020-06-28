@@ -33,6 +33,7 @@ example_request_body = {
     'alcohol_content': 'Low'
 }
 
-#print(get_best_beer(beer, example_request_body))
+print(get_best_beer(beer, example_request_body))
 
-#print(get_available_beer_types(beer))
+print(get_available_beer_types(beer))
+
