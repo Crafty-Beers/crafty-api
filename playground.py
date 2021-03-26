@@ -26,11 +26,11 @@ ws_vals = ws.get_all_values()
 beer = pd.DataFrame(data=ws_vals[1:], columns=ws_vals[0])
 
 example_request_body = {
-    'experience': 'Beginner',
-    'flavors': ['Hoppy', 'Roasty/Coffee'],
-    'types': ['IPA', 'Wheat', 'Pale Ale', 'Porter'],
-    'bitterness': 'Low',
-    'alcohol_content': 'Low'
+    "experience": "Expert",
+    "flavors": ["Hoppy", "Roasty/Coffee"],
+    "types": ['Porter', 'IPA'],
+    "bitterness": "Moderate",
+    "alcohol_content": "Moderate"
 }
 
 print(get_best_beer(beer, example_request_body))

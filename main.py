@@ -32,7 +32,7 @@ def get_beer_df(credentials):
 class Answers(BaseModel):
     experience: str
     flavors: list
-    types: list
+    types: str
     bitterness: str
     alcohol_content: str
 
