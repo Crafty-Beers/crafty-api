@@ -34,11 +34,15 @@ def get_best_beer(beer_df, json_answers):
     #   5) Alcohol level
     #      Possible Answers: Low, Moderate, High
 
+    type_split = json_answers['types'].split(",")
+
     evaluate_experience(beer_df, json_answers['experience'])
     evaluate_flavors(beer_df)
-    evaluate_type(beer_df, json_answers['types'])
+    evaluate_type(beer_df, type_split)
     evaluate_bitterness(beer_df, json_answers['bitterness'])
     evaluate_alcohol_level(beer_df, json_answers['alcohol_content'])
+
+    print(beer_df.sort_values(by='Score', ascending=False))
 
     # Get the the top-scoring beer and package the output
     top_beer = beer_df.sort_values(by=['Score'], ascending=False).head(1)
