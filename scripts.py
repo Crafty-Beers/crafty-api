@@ -78,7 +78,6 @@ def evaluate_experience(df, experience):
 
 def evaluate_flavors(df):
     df['Score'] += 100 * FLAVOR_MULT
-a
 
 def evaluate_type(df, user_types):
     df['Score'] += df['Beer Type'].isin(user_types) * 100 * TYPES_MULT
