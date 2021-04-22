@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 
 # MULTIPLIERS
-EXPERIENCE_MULT = .15
+EXPERIENCE_MULT = 0
 FLAVOR_MULT = 0
-TYPES_MULT = .40
-BITTERNESS_MULT = .25
+TYPES_MULT = .50
+BITTERNESS_MULT = .30
 ALCOHOL_CONTENT_MULT = .20
 
 
@@ -45,7 +45,7 @@ def get_best_beer(beer_df, json_answers):
     print(beer_df.sort_values(by='Score', ascending=False))
 
     # Get the the top-scoring beer and package the output
-    top_beer = beer_df.sort_values(by=['Score'], ascending=False).head(1)
+    top_beer = beer_df.sort_values(by=['Score'], ascending=False).head(3)
     top_beer = top_beer.fillna("")
     top_beer_dict = top_beer.to_dict(orient='records')
 
